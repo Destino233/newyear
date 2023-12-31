@@ -23,6 +23,7 @@
       <div id="minute">NA</div>
       <div id="second">NA</div>
     </div>
+    <div id="quote">Loading...</div>
   </div>
   <script>
     // 自动为下一年
@@ -67,6 +68,19 @@
     setInterval(() => {
       newYear()
     }, 1000)
+
+    // 一言
+    var quotes = ["一言1", "一言2", "一言3", "一言4", "一言5"];
+    var lastQuoteIndex = -1;
+    setInterval(() => {
+      var quoteIndex;
+      do {
+        quoteIndex = Math.floor(Math.random() * quotes.length);
+      } while (quoteIndex === lastQuoteIndex);
+      lastQuoteIndex = quoteIndex;
+      var quote = quotes[quoteIndex];
+      document.getElementById('quote').innerText = quote;
+    }, 4000)
   </script>
 </body>
 
