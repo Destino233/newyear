@@ -70,18 +70,22 @@
     }, 1000)
 
     // 一言
-    var quotes = ["一言1", "一言2", "一言3", "一言4", "一言5"];
-    var lastQuoteIndex = -1;
     setInterval(() => {
-      var quoteIndex;
-      do {
-        quoteIndex = Math.floor(Math.random() * quotes.length);
-      } while (quoteIndex === lastQuoteIndex);
-      lastQuoteIndex = quoteIndex;
-      var quote = quotes[quoteIndex];
-      document.getElementById('quote').innerText = quote;
+      fetch('https://v1.hitokoto.cn')
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('quote').innerText = data.hitokoto;
+        })
+        .catch(console.error);
     }, 4000)
   </script>
+  <style>
+    #quote {
+      text-align: center;
+      font-size: 2em;
+      margin-top: 50px;
+    }
+  </style>
 </body>
 
 </html>
