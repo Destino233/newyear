@@ -9,6 +9,7 @@
     background: url("../images/bg.jpg");
     background-attachment: fixed;
     background-blend-mode: hard-light;
+    background-size: contain;
   }
 
   .container {
